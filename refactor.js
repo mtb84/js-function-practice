@@ -17,72 +17,80 @@
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 
-(function() {
+(function () {
   'use strict';
 
 
-// 1. --------------------------------------------
+  // 1. --------------------------------------------
 
-// This is a named function, convert it
-// to a variable containing an anonymous
-// function
+  // This is a named function, convert it
+  // to a variable containing an anonymous
+  // function
 
-function doSomethingCool() {
-  console.log("Something Cool!");
-}
+  function doSomethingCool() {
+    console.log("Something Cool!");
+  }
 
-// Put your answer below -------------------------
+  // Put your answer below -------------------------
 
+  let doSomethingCool = function () {
+    console.log("Something Cool!");
+  }
 
-// -----------------------------------------------
+  doSomethingCool();
+  // -----------------------------------------------
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
-// 2. --------------------------------------------
+  // 2. --------------------------------------------
 
-// Here we are using setTimeout to call a function
-// after 2 seconds. Refactor to use an anonymous
-// function
+  // Here we are using setTimeout to call a function
+  // after 2 seconds. Refactor to use an anonymous
+  // function
 
-function sayHi() {
-  alert("Hello, World!");
-}
+  function sayHi() {
+    alert("Hello, World!");
+  }
 
-setTimeout(sayHi, 2000);
+  setTimeout(sayHi, 2000);
 
-// Put your answer below -------------------------
+  // Put your answer below -------------------------
 
+  setTimeout(function () {
+    console.log("Hello, World!")
+  }, 2000);
 
-// -----------------------------------------------
+  // -----------------------------------------------
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
-// 3. --------------------------------------------
+  // 3. --------------------------------------------
 
-// The code below will log the letter twice. What
-// is the order that will be logged?
+  // The code below will log the letter twice. What
+  // is the order that will be logged?
 
-// [a]: x then y then z
-// [b]: y then z
-// [c]: z then y
-// [d]: x then z
+  // [a]: x then y then z
+  // [b]: y then z
+  // [c]: z then y
+  // [d]: x then z
 
-// Please explain your answer.
+  // Please explain your answer.
 
-var letter = "x";
+  var letter = "x";
 
-setTimeout(function(){
-  letter = "y";
+  setTimeout(function () {
+    letter = "y";
+    console.log("The letter is", letter);
+  }, 1);
+
+  letter = "z";
   console.log("The letter is", letter);
-}, 1);
 
-letter = "z";
-console.log("The letter is", letter);
+  // Put your answer below -------------------------
 
-// Put your answer below -------------------------
-
+/* [C] - "x" won't be logged because it isn't console logged and "y" will have a delay because of the setTimeout command, so "z" will be first followed by "y"
 
 // -----------------------------------------------
 
@@ -95,7 +103,7 @@ console.log("The letter is", letter);
 // of the function is 5 lines of code. Refactor
 // this function to do the same thing with 1 line
 
-var reverseStr = function(str) {
+var reverseStr = function (str) {
   var arr;
   arr = str.split("");
   arr = arr.reverse();
@@ -105,6 +113,9 @@ var reverseStr = function(str) {
 
 // Put your answer below -------------------------
 
+var reverseStr = function(str) {
+  return str.split(arr.reverse(arr.join))
+}
 
 
 // -----------------------------------------------
@@ -120,7 +131,7 @@ var reverseStr = function(str) {
 // Refactor this function to use an object
 // instead of an if/else statement.
 
-var spanishColor = function(colorName) {
+var spanishColor = function (colorName) {
   if (colorName.toLowerCase() === "rojo") {
     return "#ff0000";
   }
@@ -139,7 +150,16 @@ var spanishColor = function(colorName) {
 };
 
 // Put your answer below -------------------------
-
+const spanishColor = function(colorName) {
+  const table = {
+    rojo: "#ff0000",
+    blanco: "#ffffff",
+    azul: "#0000ff",
+    verde: "#00ff00",
+    negro: "#000000",
+  }
+    return table(colorName);
+}
 
 
 // -----------------------------------------------
@@ -157,7 +177,8 @@ var spanishColor = function(colorName) {
 var foo = "bar";
 
 // Put your answer below -------------------------
-
+var foo;
+foo = "bar";
 
 // -----------------------------------------------
 
@@ -173,7 +194,7 @@ var foo = "bar";
 // to specify a number of times to call the given
 // function.
 
-var callTenTimes = function(callback) {
+var callTenTimes = function (callback) {
   var range = Array.from(Array(10).keys());
   range.forEach(callback);
 };
@@ -182,7 +203,10 @@ var callTenTimes = function(callback) {
 
 // Put your answer below -------------------------
 
-
+const callNTimes = function (callback, n) {
+const range = Array.from(Array(n).keys());
+range.forEach(callback);
+}
 // -----------------------------------------------
 
 //////////////////////////////////////////////////
@@ -200,16 +224,25 @@ var callTenTimes = function(callback) {
 
 var score = 0;
 
-var increaseScore = function() {
+var increaseScore = function () {
   score++;
 };
 
-var decreaseScore = function() {
+var decreaseScore = function () {
   score--;
 };
 
 // Put your answer below -------------------------
 
+function () {
+  const score = 0;
+  const increaseScore = function () {
+    score++;
+  };
+  const decreaseScore = function () {
+    score--;
+  };
+}
 
 
 // -----------------------------------------------
@@ -223,14 +256,19 @@ var decreaseScore = function() {
 // twoPlusTwo gets set to `undefined`. Refactor
 // the function to make it work.
 
-var addNumbers = function(numberA, numberB) {
+var addNumbers = function (numberA, numberB) {
   console.log(numberA + numberB);
 };
 
-var twoPlusTwo = addNumbers(2,2);
+var twoPlusTwo = addNumbers(2, 2);
 
 // Put your answer below -------------------------
+const addNumbers = function (numA, numB) {
+  const sum = numA + numB;
+  return sum;
 
+};
+ console.log(2, 2);
 
 
 // -----------------------------------------------
@@ -252,13 +290,18 @@ var twoPlusTwo = addNumbers(2,2);
 
 var speed = 0;
 
-var accelerate = function(amount) {
+var accelerate = function (amount) {
   speed += amount;
 };
 
 // Put your answer below -------------------------
 
+Speed is assigned 0 but amount isn't assigned a number, so you're trying to add a number to something that's not a number.
+var speed = 0;
 
+var accelerate = function (amount = 1) {
+  speed += amount;
+};
 
 // -----------------------------------------------
 
@@ -296,7 +339,7 @@ var accelerate = function(amount) {
 //       ...
 //     });
 
-var callLater = function(timeout, callback) {
+var callLater = function (timeout, callback) {
   setTimeout(callback, timeout);
 };
 
