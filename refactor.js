@@ -57,9 +57,7 @@
 
   // Put your answer below -------------------------
 
-  setTimeout(function () {
-    console.log("Hello, World!")
-  }, 2000);
+setTimeout(alert('Hello, world!'), 2000);
 
   // -----------------------------------------------
 
@@ -113,9 +111,9 @@ var reverseStr = function (str) {
 
 // Put your answer below -------------------------
 
-var reverseStr = function(str) {
-  return str.split(arr.reverse(arr.join))
-}
+var reverseStr = function (str) {
+  return arr.join(arr.reverse(str.split('')))
+};
 
 
 // -----------------------------------------------
@@ -268,7 +266,7 @@ const addNumbers = function (numA, numB) {
   return sum;
 
 };
- console.log(2, 2);
+ console.log(numA, numB);
 
 
 // -----------------------------------------------
