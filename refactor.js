@@ -57,7 +57,10 @@
 
   // Put your answer below -------------------------
 
-setTimeout(alert('Hello, world!'), 2000);
+  // refactored
+setTimeout(function () {
+  alert("Hello, World!");
+}, 2000);
 
   // -----------------------------------------------
 
@@ -88,7 +91,7 @@ setTimeout(alert('Hello, world!'), 2000);
 
   // Put your answer below -------------------------
 
-/* [C] - "x" won't be logged because it isn't console logged and "y" will have a delay because of the setTimeout command, so "z" will be first followed by "y"
+// [C] - "x" won't be logged because it isn't console logged and "y" will have a delay because of the setTimeout command, so "z" will be first followed by "y"
 
 // -----------------------------------------------
 
@@ -112,7 +115,8 @@ var reverseStr = function (str) {
 // Put your answer below -------------------------
 
 var reverseStr = function (str) {
-  return arr.join(arr.reverse(str.split('')))
+  // return arr.join(arr.reverse(str.split('')))
+  return str.split('').reverse().join('');
 };
 
 
@@ -156,7 +160,7 @@ const spanishColor = function(colorName) {
     verde: "#00ff00",
     negro: "#000000",
   }
-    return table(colorName);
+    return table[colorName];
 }
 
 
@@ -294,7 +298,7 @@ var accelerate = function (amount) {
 
 // Put your answer below -------------------------
 
-Speed is assigned 0 but amount isn't assigned a number, so you're trying to add a number to something that's not a number.
+// Speed is assigned 0 but amount isn't assigned a number, so you're trying to add a number to something that's not a number.
 var speed = 0;
 
 var accelerate = function (amount = 1) {
